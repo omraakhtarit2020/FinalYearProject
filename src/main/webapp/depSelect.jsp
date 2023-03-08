@@ -148,7 +148,7 @@ button {
 				</button>
 
 				<div id="options" onmouseout="myFunHoverOff(event)">
-					<a id="opt-atag" href="myDetails.jsp">My Details</a>
+					<a id="opt-atag" role="button">My Details</a>
 				</div> <!-- <div class="dropdown-menu"> -->
 				<button class=" btn btn-light mx-2 " id="signout" href="#">Sign
 					Out</button> <!-- </div> -->
@@ -225,6 +225,39 @@ button {
 		 	// send the request
 		    xhr.send();
   			}
+		
+		let myDetails = document.getElementById('opt-atag');
+   		myDetails.addEventListener('click', myDetailsClickHandler)
+
+   		function myDetailsClickHandler() {
+   			// Instantiate an xhr object
+		    let xhr = new XMLHttpRequest();
+			
+		 	// USE THIS FOR POST REQUEST
+		    xhr.open('GET', 'EditServlet', true);
+		    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		    
+		 	// What to do when response is ready
+		    xhr.onload = function (){
+			    if(this.status === 200){
+			    	if(this.responseText==="1"){
+			    		window.location="edit.jsp"
+			    	}else
+			    		{
+			    		window.location = "myDetails.jsp";
+			    		}
+			    		
+			    }
+			    else{
+			    	alert("Some Error Occured");
+			    }
+		 	}
+		 	
+		 	// send the request
+		    xhr.send();
+   			}
+		
+		
    		function myFuncHover(event){
 
 			let obj=document.querySelector('#options');
