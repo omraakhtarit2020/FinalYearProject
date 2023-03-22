@@ -119,18 +119,18 @@ button {
 						<li class="dropdown-submenu">
 							<a class="dropdown-item" tabindex="-1" href="#">Faculty Corner</a>
 							<ul class="dropdown-menu">
-								<li class="dropdown-item"><a href="#">Books</a></li>
-								<li class="dropdown-item"><a href="#">Journals of Faculty</a></li>
-								<li class="dropdown-item"><a href="depSelect.jsp">Staff Information</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="PublishBook.jsp">Published Books</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="#">Journals of Faculty</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="depSelect.jsp">Staff Information</a></li>
 							</ul>
 						</li>
 						<li class="dropdown-submenu">
 							<a class="dropdown-item" tabindex="-1" href="#">Institution Corner</a>
 							<ul class="dropdown-menu">
-								<li class="dropdown-item"><a href="#">Awards</a></li>
-								<li class="dropdown-item"><a href="#">Collaboration</a></li>
-								<li class="dropdown-item"><a href="#">Extension/Outreach Program</a></li>
-								<li class="dropdown-item"><a href="#">Tech Programs</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="#">Awards</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="#">Collaboration</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="#">Extension/Outreach Program</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="#">Tech Programs</a></li>
 							</ul>
 						</li>
 						<li class="dropdown-submenu">
