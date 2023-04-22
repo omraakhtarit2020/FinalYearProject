@@ -114,7 +114,7 @@ button {
 
 				<!-- Dropdown -->
 				<li class="nav-item dropdown">
-					<a class="dropdown-toggle nav-link btn text-light" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Naac </a>
+					<a class="dropdown-toggle nav-link btn text-light" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> NAAC </a>
 					<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
 						<li class="dropdown-submenu">
 							<a class="dropdown-item" tabindex="-1" href="#">Faculty Corner</a>
@@ -127,7 +127,7 @@ button {
 						<li class="dropdown-submenu">
 							<a class="dropdown-item" tabindex="-1" href="#">Institution Corner</a>
 							<ul class="dropdown-menu">
-								<li class="dropdown-item"><a class="text-dark" href="#">Awards</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="awards.jsp">Awards</a></li>
 								<li class="dropdown-item"><a class="text-dark" href="#">Collaboration</a></li>
 								<li class="dropdown-item"><a class="text-dark" href="#">Extension/Outreach Program</a></li>
 								<li class="dropdown-item"><a class="text-dark" href="#">Tech Programs</a></li>
