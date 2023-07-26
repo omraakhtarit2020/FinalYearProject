@@ -224,6 +224,35 @@ button{
                                         <br>
                                         </div>
                                         
+                                        <label for="email" class="form-label" ><h4 class='asterik'>Alternate Email : </h4></label>
+                                        <div class="row">
+                                        <div class="col">
+                                            <input type="email"  type="text"  class="form-control" id="mail-value" name="aName" value="<%=userInfo.getaName()%>"/>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        </div>
+                                        
+                                        <label for="text" class="form-label" ><h4 class='asterik'>Phone no. : </h4></label>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="input-group-prepend">
+											    <span class="input-group-text" id="basic-addon1">+91</span>
+											 
+											  <input type="text" class="form-control" placeholder="phone number" value="<%=userInfo.getPhn()%>" aria-describedby="basic-addon1" name="phn" id="phn"> </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        </div>
+                                        
+                                        <label for="dob" class="form-label"><h4 class='asterik'>Date Of Birth : </h4></label>
+                                        <div class="row">
+                                        <div class="col">
+                                          <input type="date" id="dob" name="dob" maxlength="20" class="form-control" required value="<%=userInfo.getudob()%>"><br>
+                                        </div>
+                                        </div>
                                         
                                        <div class="mb-3 row">
 	                                    <label for="TCSion ID" class="form-label "><b><h4>TCSion ID  : </h4></b></label>

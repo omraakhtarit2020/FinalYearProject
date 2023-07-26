@@ -15,28 +15,26 @@ import java.util.Properties;
 import ProjMyDetails.MyDetailsData;
 
 public class StaffInfoDao {
-	
+
 	private String dbDriver = "com.mysql.cj.jdbc.Driver";
-	
-	public void loadDriver(String dbDriver)
-	{
+
+	public void loadDriver(String dbDriver) {
 		try {
 			Class.forName(dbDriver);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	public Connection getConnection()
-	{
-		Object filePath = "C:\\Users\\USER\\eclipse-workspace\\proj1\\Configuration\\configsetting.properties";
+
+	public Connection getConnection() {
+		Object filePath = "C:\\Users\\DELL\\Desktop\\FinalYearProject\\configsetting.properties";
 		Connection con = null;
 		final Properties props = new Properties();
 		try {
 			props.load(new FileInputStream((String) filePath));
-			String dbUrl=props.getProperty("dbUrl");
-			String dbUname=props.getProperty("dbUname");
-			String dbPassword=props.getProperty("dbPassword");
+			String dbUrl = props.getProperty("dbUrl");
+			String dbUname = props.getProperty("dbUname");
+			String dbPassword = props.getProperty("dbPassword");
 			con = DriverManager.getConnection(dbUrl, dbUname, dbPassword);
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
@@ -52,17 +50,17 @@ public class StaffInfoDao {
 		List<MyDetailsData> staffInfo = new ArrayList<MyDetailsData>();
 		loadDriver(dbDriver);
 		Connection con = getConnection();
-		String sql = "select * from mydetails where subjects = '"+dep+"'";
+		String sql = "select * from mydetails where subjects = '" + dep + "'";
 		PreparedStatement ps;
 		try {
 			ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				MyDetailsData mtd = new MyDetailsData();
 				mtd.setfName(rs.getString("fName"));
-				if(rs.getString("mName")==null) {
+				if (rs.getString("mName") == null) {
 					mtd.setmName("");
-				}else {
+				} else {
 					mtd.setmName(rs.getString("mName"));
 				}
 				mtd.setlName(rs.getString("lName"));
@@ -79,7 +77,7 @@ public class StaffInfoDao {
 				mtd.setCeqt(rs.getString("ceqt"));
 				staffInfo.add(mtd);
 			}
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return staffInfo;

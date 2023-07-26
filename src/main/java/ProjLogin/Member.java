@@ -1,10 +1,9 @@
-package projLogin;
+package ProjLogin;
 
 public class Member {
-	
+
 	private String uname, password;
 
-	
 	public Member() {
 		super();
 	}
@@ -32,5 +31,3 @@ public class Member {
 	}
 
 }
-
-

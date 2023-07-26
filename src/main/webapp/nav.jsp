@@ -13,7 +13,6 @@
 	crossorigin="anonymous">
 
 <title>TINT Digital Resource Library</title>
-<title>Linear Gradient-css</title>
 <style type="text/css">
 * {
 	margin: 0;
@@ -92,14 +91,10 @@ button {
 	<%
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	%>
-	<div class="mx-2alert alert-light" role="alert"
-		style="background: rgb(217, 176, 140)">
-		<h1 class="text-center" style="color: black">TINT DIGITAL
-			RESOURCE LIBRARY</h1>
-	</div>
+	
 	<nav class="navbar navbar-expand-lg navbar-white bg-dark">
 
-		<img src="collegeLogo.jpg" width="40" height="40"
+		<img src="collegelogo.jpg" width="40" height="40"
 			alt="">
 
 
@@ -153,8 +148,8 @@ button {
 				<p class="my-0 py-0 text-white bg-dark" id="uname"></p>
 				&nbsp;&nbsp;&nbsp;
 				<button class="user-btn" onmouseover="myFuncHover(event)">
-					<img class="rounded-circle mx-2 user-btn" src="user.jpg" width="15"
-						height="15" alt="">
+					<img class="rounded-circle mx-2 user-btn" src="photo_6165537970338247539_x.jpg" width="30px"
+						height="25px" alt="">
 				</button>
 
 				<div id="options" onmouseout="myFunHoverOff(event)">
@@ -171,10 +166,13 @@ button {
 			</span>
 		</div>
 	</nav>
-	
+	<div class="mx-2alert alert-light" role="alert"
+		style="background: rgb(217, 176, 140)">
+		<h1 class="text-center" style="color: black">TINT DIGITAL
+			RESOURCE LIBRARY</h1>
+	</div>
 	<script>
-    const name = `<%=session.getAttribute("user")%>
-   		`;
+        const name = `<%=session.getAttribute("user")%>`;
    		let uname = document.getElementById('uname');
    		let welcome = "Welcome " + name;
    		uname.innerHTML += welcome;

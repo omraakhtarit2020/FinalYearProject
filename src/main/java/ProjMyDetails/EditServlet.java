@@ -50,7 +50,7 @@ public class EditServlet extends HttpServlet {
 			String uname = (String) session.getAttribute("user");
 			System.out.println(uname);
 
-			Object filePath = "C:\\Users\\DIBYENDU\\eclipse-workspace\\Proj2\\Configuration\\configsetting.properties";
+			Object filePath = "C:\\Users\\DELL\\Desktop\\FinalYearProject\\configsetting.properties";
 			Connection con = null;
 			final Properties props = new Properties();
 
@@ -102,6 +102,9 @@ public class EditServlet extends HttpServlet {
 		String fName = request.getParameter("fName");
 		String mName = request.getParameter("mName");
 		String lName = request.getParameter("lName");
+		String aName = request.getParameter("aName");
+		String phn = request.getParameter("phn");
+		String udob = request.getParameter("dob");
 		String tcsionId = request.getParameter("TCSion ID");
 		System.out.println(tcsionId);
 		String designation = request.getParameter("designation");
@@ -129,11 +132,12 @@ public class EditServlet extends HttpServlet {
 		 * ' + teachingExp + ' ' + teachingMethods + ' ' + technologyUses + ' ' + smd +
 		 * ' ' + ceqt + ' ' + uName);
 		 */
-		MyDetailsData myDetailsData = new MyDetailsData(fName, mName, lName, uName, tcsionId, designation, subject,
-				highestQualification, anyOther, teachingExp, teachingMethods, technologyUses, smd, ceqt );
+		MyDetailsData myDetailsData = new MyDetailsData(fName, mName, lName, uName, aName, phn, udob, tcsionId,
+				designation, subject, highestQualification, anyOther, teachingExp, teachingMethods, technologyUses, smd,
+				ceqt);
 
 		myDetailsDaw mDao = new myDetailsDaw();
-		int result = mDao.update(myDetailsData,uName);
+		int result = mDao.update(myDetailsData, uName);
 //		response.getWriter().print(result);
 //		HttpSession ses = request.getSession();
 		if (result > 0) {
