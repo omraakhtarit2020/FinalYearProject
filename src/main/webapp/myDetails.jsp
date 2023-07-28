@@ -230,7 +230,7 @@ button{
                                         <div class="col">
                                             <div class="input-group-prepend">
 											    <span class="input-group-text" id="basic-addon1">+91</span>
-											  <input type="text" class="form-control" placeholder="phone number" aria-describedby="basic-addon1" name="phn" id="phnno">
+											  <input type="text" class="form-control" placeholder="phone number" aria-describedby="basic-addon1" name="phn" id="phn">
 											  </div>
                                         </div>
                                         <br>

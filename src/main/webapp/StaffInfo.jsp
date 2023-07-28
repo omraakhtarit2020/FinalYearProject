@@ -29,6 +29,10 @@
 		<tr>
 
 			<th scope="col">Name</th>
+			<th scope="col">Email</th>
+			<th scope="col">Alternate Email</th>
+			<th scope="col">Phone no.</th>
+			<th scope="col">D.O.B</th>
 			<th scope="col">Tcsion Id</th>
 			<th scope="col">Designation</th>
 			<th scope="col">Subject</th>
@@ -46,6 +50,10 @@
 			<tr>
 
 				<td>${staffInfo.getfName()}${" "}${staffInfo.getmName()}${" "}${staffInfo.getlName()}</td>
+				<td>${staffInfo.getuName()}</td>
+				<td>${staffInfo.getaName()}</td>
+				<td>${staffInfo.getPhn()}</td>
+				<td>${staffInfo.getudob()}</td>
 				<td>${staffInfo.getTcsionId()}</td>
 				<td>${staffInfo.getDesignation()}</td>
 				<td>${staffInfo.getSubject()}</td>

@@ -65,6 +65,9 @@ public class StaffInfoDao {
 				}
 				mtd.setlName(rs.getString("lName"));
 				mtd.setuName(rs.getString("uName"));
+				mtd.setaName(rs.getString("aName"));
+				mtd.setPhn(rs.getString("phn"));
+				mtd.setudob(rs.getString("udob"));
 				mtd.setTcsionId(rs.getString("tcsionId"));
 				mtd.setDesignation(rs.getString("designation"));
 				mtd.setSubject(rs.getString("subjects"));

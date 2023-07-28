@@ -42,14 +42,19 @@
    
   
   <script>
-  var edit="";
-  const sub=document.querySelector("#cb");
-  edit = `<%=userInfo.getSubject()%>`;
-  if(edit==null){
-	  function hideElement() {
-		  sub.style.display = "none";
-		}
-  }
+  //var edit="";
+  //const sub=document.querySelector("#cb");
+  //if(edit==null){
+	//  function hideElement() {
+		//  sub.style.display = "none";
+		//}
+  //}
+  var edit = `<%= userInfo.getSubject() %>`;
+	edit = (edit === "null") ? "Department:" : edit;
+
+	// Now, you can set the card title with the updated value
+	const cardTitle = document.querySelector(".card-title");
+	cardTitle.textContent = edit;
   </script>
 </body>
 </html>
