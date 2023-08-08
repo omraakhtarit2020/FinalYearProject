@@ -1,8 +1,8 @@
 package ProjMyDetails;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -50,11 +50,14 @@ public class EditServlet extends HttpServlet {
 			String uname = (String) session.getAttribute("user");
 			System.out.println(uname);
 
-			Object filePath = "C:\\Users\\DELL\\Desktop\\FinalYearProject\\configsetting.properties";
+			// Object filePath =
+			// "C:\\Users\\DELL\\Desktop\\FinalYearProject\\src\\main\\java\\configsetting.properties";
+			String relativePath = "configsetting.properties";
 			Connection con = null;
 			final Properties props = new Properties();
+			InputStream inputStream = EditServlet.class.getClassLoader().getResourceAsStream(relativePath);
 
-			props.load(new FileInputStream((String) filePath));
+			props.load(inputStream);
 			String dbUrl = props.getProperty("dbUrl");
 			String dbUname = props.getProperty("dbUname");
 			String dbPassword = props.getProperty("dbPassword");

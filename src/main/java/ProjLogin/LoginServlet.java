@@ -122,6 +122,7 @@ package ProjLogin;
 //}
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -130,6 +131,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -144,6 +146,23 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	public static Properties loadProperties() throws IOException {
+		Properties properties = new Properties();
+
+		// Load properties from the configsetting.properties file
+		try (InputStream inputStream = LoginServlet.class.getClassLoader()
+				.getResourceAsStream("configsetting.properties")) {
+			if (inputStream != null) {
+				properties.load(inputStream);
+
+			} else {
+				throw new IOException("Unable to locate the properties file.");
+			}
+		}
+
+		return properties;
+	}
 
 	public static String doHashing(String password) {
 		try {
@@ -168,10 +187,13 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			PrintWriter out = response.getWriter();
 			response.setContentType("text/html");
-
+			Properties properties = LoginServlet.loadProperties();
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/finalyearproject", "omra",
+//					"root");
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/finalyearproject", "omra",
-					"root");
+			Connection con = DriverManager.getConnection(properties.getProperty("dbUrl"),
+					properties.getProperty("dbUname"), properties.getProperty("dbPassword"));
 
 			String n = request.getParameter("name");
 			String p = request.getParameter("pwd");

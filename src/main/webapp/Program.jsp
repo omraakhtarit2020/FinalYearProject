@@ -47,7 +47,7 @@
 
 	<%
 	ProgramDaw pd = new ProgramDaw();
-	List<ProgramData> progData = pd.getAllInfo(0);
+	List<ProgramData> progData = pd.getAllInfo();
 	request.setAttribute("progData", progData);
 	%>
 

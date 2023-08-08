@@ -225,14 +225,15 @@ button{
                                         <br>
                                         </div>
                                         
-                                        <label for="text" class="form-label" ><h4 class='asterik'>Phone no. : </h4></label>
+                                        <label for="phn" class="form-label" ><h4 class='asterik'>Phone no. : </h4></label>
                                     <div class="row">
                                         <div class="col">
                                             <div class="input-group-prepend">
 											    <span class="input-group-text" id="basic-addon1">+91</span>
-											  <input type="text" class="form-control" placeholder="phone number" aria-describedby="basic-addon1" name="phn" id="phn">
+											  <input onkeyup="nCheckPhn()" type="text" class="form-control" placeholder="phone number" aria-describedby="basic-addon1" name="phn" id="phn">
 											  </div>
                                         </div>
+                                        <div class="text-danger" id="PhnError" style="display:none">please enter a valid Phone No.</div>
                                         <br>
                                         <br>
                                         <br>
@@ -242,13 +243,14 @@ button{
                                         <label for="dob"><h4 class='asterik'>Date Of Birth : </h4></label>
                                         <div class="row">
                                         <div class="col">
-                                          <input type="date" id="dob" name="dob" maxlength="20" class="form-control" required><br>
+                                          <input onkeyup="nCheckdob()" type="date" id="dob" name="dob" maxlength="20" class="form-control" required><br>
                                         </div>
                                         </div>
+                                        <div class="text-danger" id="dobError" style="display:none">please enter a valid D.O.B</div>
                                         <br>
                                         
                                        <div class="mb-3 row">
-	                                    <label for="TCSion ID" class="form-label "><b><h4>TCSion ID  : </h4></b></label>
+	                                    <label for="TCSion ID" class="form-label "><b><h4 class='asterik'>TCSion ID  : </h4></b></label>
 	                                    <div class="col w-100 p-3">
 	                                        <input onkeyup="nCheckTCSion()" type="text" minlength="10" maxlength="15" class="form-control" name="TCSion ID" id = "TCSionId" placeholder="TCSion ID" aria-label="TCSion ID">
 	                                    </div>
@@ -304,7 +306,7 @@ button{
                                      
                                     <div class="mb-3 row"> 
 	                                    <label for="txtName" class="form-label "><h4 class='asterik'>Highest Qualification : </h4></label>
-	                                    <div class="w-100 p-3">
+	                                    <div class="w-100 p-3" id="hqview" style="display:block">
 	                                        <select onchange="hqCheck()" class="form-select" name="HQ" id="hq" aria-label="Default select example ">
 	                                            <option selected value="">Open this select menu</option>
 	                                            <option value="10th">10th</option>
@@ -312,6 +314,7 @@ button{
 	                                            <option value="Diploma">Diploma</option>
 	                                            <option value="Bachelor of Technology (B.Tech)">Bachelor of Technology (B.Tech)</option>
 	                                            <option value="Master of Technology (M.Tech)">Master of Technology (M.Tech) </option>
+	                                            <option value="Any Other Qualification">Add any other Qualification</option>
 	                                        </select>
 	                                    </div>
 	                                    <div class="text-danger" id="hqError" style="display:none">This field is mandatory</div>
@@ -320,8 +323,8 @@ button{
 	                                
                                     <br>
                                     
-                                    <div class="mb-3 row">
-	                                    <label for="txtName" class="form-label "><b><h4>Any Other : </h4></b></label>
+                                    <div class="mb-3 row" style="display:none" id="anyother">
+	                                    <label for="txtName" class="form-label "></label>
 	                                    <div class="col w-100 p-3">
 	                                        <input type="text" class="form-control" name="other" placeholder="Others..." aria-label="Any Other">
 	                                    </div>
@@ -444,7 +447,10 @@ button{
            
         	const submit=document.querySelector("#submit");
         	const TCSionId=document.querySelector("#TCSionId");
-        
+            const phn=document.querySelector("#phn");
+            const PhnError =document.querySelector("#PhnError");
+            const dob= document.querySelector("#dob");
+            const dobError=document.querySelector("#dobError");
         	const fName=document.querySelector("#fName");
         	const mName=document.querySelector("#mName");
         	const lName=document.querySelector("#lName");
@@ -512,6 +518,52 @@ button{
                 check();
             }
             
+            
+            
+            <!-- Constraints for Phone-->
+            
+            
+         let regExpPhn =/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/; 
+       	 
+            
+            function nCheckPhn() {
+            	if(phn.value.match(regExpPhn) || phn.value===""){
+            		phn.style.borderColor="#27ae60";
+                    PhnError.style.display="none";
+                    
+                    //submit.disabled=false;
+                    error[1]=0;
+                }else{
+                	phn.style.borderColor="#e74c3c";
+                    
+                    PhnError.style.display="block";
+                   
+                    //submit.disabled=true;
+                    error[1]=1;
+                }
+               
+                check();
+            	
+            	
+            }
+            <!-- Constraint for D.O.B-->
+            
+            const currentDate = new Date().toISOString().split('T')[0];
+
+             dob.addEventListener('input', () => {
+              const enteredDate = dob.value;
+              if (enteredDate > currentDate) {
+            	  dob.style.borderColor="#e74c3c";
+                  
+                  dobError.style.display="block";
+              } else {
+            	  dob.style.borderColor="#27ae60";
+                  dobError.style.display="none";
+                dob.setCustomValidity('');
+                
+              }
+            });
+            
             <!-- Constraint for TCSion ID  -->
             <!-- let regExpTCSion =/^[A-Za-z0-9]*$/; -->
            <!-- let regExpTCSion =/[a-zA-Z]{2}\d{6}/; -->
@@ -524,20 +576,22 @@ button{
                     TCSError.style.display="none";
                     
                     //submit.disabled=false;
-                    error[1]=0;
+                    error[2]=0;
                 }else{
                 	TCSionId.style.borderColor="#e74c3c";
                     
                     TCSError.style.display="block";
                    
                     //submit.disabled=true;
-                    error[1]=1;
+                    error[2]=1;
                 }
                
                 check();
             	
             	
             }
+            
+            
             
       
             
@@ -547,13 +601,13 @@ button{
                 	desg.style.borderColor="#e74c3c";
                 	desgError.style.display="block";
                     //submit.disabled=true;
-                	error[2]=1;
+                	error[3]=1;
                 }
             	else{
             		desg.style.borderColor="#27ae60";
                 	desgError.style.display="none";
                     //submit.disabled=false;
-                	error[2]=0;
+                	error[3]=0;
             	}
             	check();
             }
@@ -564,13 +618,13 @@ button{
                 	sub.style.borderColor="#e74c3c";
                 	subError.style.display="block";
                     //submit.disabled=true;
-                	error[3]=1;
+                	error[4]=1;
                 }
             	else{
             		sub.style.borderColor="#27ae60";
                 	subError.style.display="none";
                     //submit.disabled=false;
-                	error[3]=0;
+                	error[4]=0;
             	}
             	check();
             }
@@ -581,13 +635,20 @@ button{
                 	hq.style.borderColor="#e74c3c";
                 	hqError.style.display="block";
                     //submit.disabled=true;
-                	error[4]=1;
+                	error[5]=1;
+                }else if(hq.value=="Any Other Qualification"){
+                	hq.style.borderColor="#27ae60";
+                	hqError.style.display="none";
+                    const any=document.querySelector("#anyother");
+                    document.querySelector("#hqview").style.display="none";
+                    any.style.display="block";
+                   
                 }
             	else{
             		hq.style.borderColor="#27ae60";
                 	hqError.style.display="none";
                     //submit.disabled=false;
-                	error[4]=0;
+                	error[5]=0;
             	}
             	check();
             }
@@ -596,7 +657,7 @@ button{
             function TMcheck() {
             	if(oneTM.checked==true || twoTM.checked==true || threeTM.checked==true || fourTM.checked==true){
             		//submit.disabled=false;
-            		error[5]=0;
+            		error[6]=0;
             		TMError.style.display="none";
             	}
             	else{
@@ -609,7 +670,7 @@ button{
             function TUcheck() {
             	if(one.checked==true || two.checked==true || three.checked==true){
             		//submit.disabled=false;
-            		error[6]=0;
+            		error[7]=0;
             		TUError.style.display="none";
             	}
             	else{
@@ -624,14 +685,14 @@ button{
                 	SMD.style.borderColor="#e74c3c";
                 	SMDError.style.display="block";
                     //submit.disabled=true;
-                	error[7]=1;
+                	error[8]=1;
                     
                 }
             	else{
             		SMD.style.borderColor="#27ae60";
                 	SMDError.style.display="none";
                     //submit.disabled=false;
-                	error[7]=0;
+                	error[8]=0;
             	}
             	check();
             }
@@ -640,7 +701,7 @@ button{
             function CEQcheck() {
             	if(one1.checked==true || two1.checked==true || three1.checked==true || four1.checked==true){
             		//submit.disabled=false;
-            		error[8]=0;
+            		error[9]=0;
             		CEQError.style.display="none";
             	}
             	else{

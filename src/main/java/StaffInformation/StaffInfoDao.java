@@ -1,8 +1,6 @@
 package StaffInformation;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,6 +11,7 @@ import java.util.List;
 import java.util.Properties;
 
 import ProjMyDetails.MyDetailsData;
+import ProjMyDetails.myDetailsDaw;
 
 public class StaffInfoDao {
 
@@ -27,20 +26,41 @@ public class StaffInfoDao {
 	}
 
 	public Connection getConnection() {
-		Object filePath = "C:\\Users\\DELL\\Desktop\\FinalYearProject\\configsetting.properties";
+		// Object filePath =
+		// "C:\\Users\\DELL\\Desktop\\FinalYearProject\\src\\main\\java\\configsetting.properties";
 		Connection con = null;
-		final Properties props = new Properties();
-		try {
-			props.load(new FileInputStream((String) filePath));
-			String dbUrl = props.getProperty("dbUrl");
-			String dbUname = props.getProperty("dbUname");
-			String dbPassword = props.getProperty("dbPassword");
-			con = DriverManager.getConnection(dbUrl, dbUname, dbPassword);
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} catch (SQLException e) {
+//		final Properties props = new Properties();
+//		try {
+//			props.load(new FileInputStream((String) filePath));
+//			String dbUrl = props.getProperty("dbUrl");
+//			String dbUname = props.getProperty("dbUname");
+//			String dbPassword = props.getProperty("dbPassword");
+//			con = DriverManager.getConnection(dbUrl, dbUname, dbPassword);
+//		} catch (FileNotFoundException e1) {
+//			e1.printStackTrace();
+//		} catch (IOException e1) {
+//			e1.printStackTrace();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return con;
+//	}
+		Properties properties = new Properties();
+
+		// Use the class loader to load the resource
+		try (InputStream inputStream = myDetailsDaw.class.getClassLoader()
+				.getResourceAsStream("configsetting.properties")) {
+			if (inputStream != null) {
+				properties.load(inputStream);
+				String dbUrl = properties.getProperty("dbUrl");
+				String dbUname = properties.getProperty("dbUname");
+				String dbPassword = properties.getProperty("dbPassword");
+				con = DriverManager.getConnection(dbUrl, dbUname, dbPassword);
+				// Now you can access properties using properties.getProperty("key")
+			} else {
+				System.out.println("Unable to locate the properties file.");
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return con;

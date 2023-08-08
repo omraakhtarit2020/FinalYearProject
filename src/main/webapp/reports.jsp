@@ -126,11 +126,11 @@
         		<div class="card" style="border-radius: 10px; height:240px;">
             		<div class="card-body">
                 	<!--p class="mb-0">NAAC Clause</p-->
-                	<h5 class="card-title">User Information</h5>
+                	<h5 class="card-title">Information</h5>
                 	<p class="card-text mb-0">Click the below button to download your basic staff info.</p>
                 		<div class="text-center">
                     			<a href="userInfo.jsp" class="btn btn-outline-primary mr-2 pt-0">View</a>
-                    			<a onclick="downloadBasicInfo()" class="btn btn-outline-success pt-0">Download</a>
+                    			<a id="download" class="btn btn-outline-success pt-0">Download</a>
                 		</div>
             		</div>
         		</div>
@@ -203,6 +203,7 @@
 	    xhr.send();
 	}
 	</script>
+	
 	
 </body>
 </html>

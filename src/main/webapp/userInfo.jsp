@@ -30,7 +30,7 @@
 	request.setAttribute("staffList", staffList);
 	%>
 	<h1 class="text-center">
-		STAFF INFORMATION OF
+		INFORMATION OF
 		<%=dep.toUpperCase()%>
 		DEPARTMENT
 	</h1>
@@ -59,7 +59,7 @@
 		</c:forEach>
 	</table>
 	
-	<div class="container my-2">
+   <div class="container my-2">
   		<div class="row justify-content-md-center">
     
     		<div class="col-md-auto">
@@ -69,7 +69,7 @@
   		</div>
   	</div>
 
-	<script type="text/javascript">
+       <script type="text/javascript">
 		//functionality of save As button
 		let download = document.getElementById('download');
 		download.addEventListener('click', downloadClickHandler);

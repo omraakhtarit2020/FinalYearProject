@@ -8,7 +8,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -27,7 +26,7 @@ public class ProgramDaw {
 	}
 
 	public Connection getConnection() {
-		Object filePath = "C:\\Users\\DELL\\Desktop\\FinalYearProject\\configsetting.properties";
+		Object filePath = "C:\\Users\\DELL\\Desktop\\FinalYearProject\\src\\main\\java\\configsetting.properties";
 		Connection con = null;
 		final Properties props = new Properties();
 		try {
@@ -46,20 +45,20 @@ public class ProgramDaw {
 		return con;
 	}
 
-	public List<ProgramData> getAllInfo(int duration) {
+	public List<ProgramData> getAllInfo() {
 
 		List<ProgramData> progData = new ArrayList<ProgramData>();
 		loadDriver(dbDriver);
 		Connection con = getConnection();
 
-		int year = Year.now().getValue();
-		if (duration == 0) {
-			year = 0;
-		} else {
-			year -= duration;
-		}
+//		int year = Year.now().getValue();
+//		if (duration == 0) {
+//			year = 0;
+//		} else {
+//			year -= duration;
+//		}
 
-		String sql = "select * from program where extract(year from startDate) > " + year;
+		String sql = "select * from program"; // where extract(year from startDate) > " + year
 		PreparedStatement ps;
 		try {
 			ps = con.prepareStatement(sql);

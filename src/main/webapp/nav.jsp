@@ -111,23 +111,7 @@ button {
 				<li class="nav-item dropdown">
 					<a class="dropdown-toggle nav-link btn text-light" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> NAAC </a>
 					<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-						<li class="dropdown-submenu">
-							<a class="dropdown-item" tabindex="-1" href="#">Faculty Corner</a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-item"><a class="text-dark" href="PublishBook.jsp">Published Books</a></li>
-								<li class="dropdown-item"><a class="text-dark" href="#">Journals of Faculty</a></li>
-								<li class="dropdown-item"><a class="text-dark" href="depSelect.jsp">Staff Information</a></li>
-							</ul>
-						</li>
-						<li class="dropdown-submenu">
-							<a class="dropdown-item" tabindex="-1" href="#">Institution Corner</a>
-							<ul class="dropdown-menu">
-								<li class="dropdown-item"><a class="text-dark" href="awards.jsp">Awards</a></li>
-								<li class="dropdown-item"><a class="text-dark" href="#">Collaboration</a></li>
-								<li class="dropdown-item"><a class="text-dark" href="#">Extension/Outreach Program</a></li>
-								<li class="dropdown-item"><a class="text-dark" href="Program.jsp">Tech Programs</a></li>
-							</ul>
-						</li>
+						
 						<li class="dropdown-submenu">
 							<a class="dropdown-item" tabindex="-1" href="reports.jsp">Reports</a>
 							<!-- <ul class="dropdown-menu">
@@ -136,9 +120,33 @@ button {
 						</li>
 					</ul>
 				</li>
+				
+				<li class="nav-item dropdown">
+					<a class="dropdown-toggle nav-link btn text-light" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Faculty Corner </a>
+					<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+					<li class="dropdown-submenu"><li class="dropdown-item"><a class="text-dark" href="PublishBook.jsp">Published Books</a></li>
+						<li class="dropdown-item"><a class="text-dark" href="journals.jsp">Journals of Faculty</a></li>
+						<li class="dropdown-item"><a class="text-dark" href="depSelect.jsp">Staff Information</a></li>
+					</li>
 					
-					<li class="nav-item active"><a
-					class="nav-link text-white bg-dark" href="help.jsp">Help <span
+					</ul>
+						</li>
+				
+				<li class="nav-item dropdown">
+					<a class="dropdown-toggle nav-link btn text-light" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Institution Corner </a>
+					<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+					<li class="dropdown-submenu">
+					<li class="dropdown-item"><a class="text-dark" href="awards.jsp">Awards</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="#">Collaboration</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="#">Extension/Outreach Program</a></li>
+								<li class="dropdown-item"><a class="text-dark" href="Program.jsp">Tech Programs</a></li>
+					</li>
+					
+					</ul>
+						</li>
+					
+					<li class="nav-item active">
+					<a class="nav-link text-white bg-dark" href="help.jsp">Help <span
 						class="sr-only">(current)</span></a></li>
 			</ul>
 
@@ -168,8 +176,7 @@ button {
 	</nav>
 	<div class="mx-2alert alert-light" role="alert"
 		style="background: rgb(217, 176, 140)">
-		<h1 class="text-center" style="color: black">TINT DIGITAL
-			RESOURCE LIBRARY</h1>
+		<h1 class="text-center" style="color: black">TEDNex</h1>
 	</div>
 	<script>
         const name = `<%=session.getAttribute("user")%>`;
