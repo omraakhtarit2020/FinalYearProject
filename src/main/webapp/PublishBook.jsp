@@ -17,7 +17,7 @@
 
 	<%
 	PublishedBooksDaw pbd = new PublishedBooksDaw();
-	List<PublishedBooksData> booksData = pbd.getAllInfo(0);
+	List<PublishedBooksData> booksData = pbd.getAllInfo();
 	request.setAttribute("booksData", booksData);
 	%>
     <div class="container-fluid" style="background-color: #D9B08C; text-align: center;">

@@ -6,7 +6,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -66,21 +65,20 @@ public class PublishedBooksDaw {
 		return con;
 	}
 
-	public List<PublishedBooksData> getAllInfo(int duration) {
+	public List<PublishedBooksData> getAllInfo() { // int duration
 
 		List<PublishedBooksData> booksData = new ArrayList<PublishedBooksData>();
 		loadDriver(dbDriver);
 		Connection con = getConnection();
 
-		int year = Year.now().getValue();
-		if (duration == 0) {
-			year = 0;
-		} else {
-			year -= duration;
-		}
+//		int year = Year.now().getValue();
+//		if (duration == 0) {
+//			year = 0;
+//		} else {
+//			year -= duration;
+//		}
 
-		String sql = "select * from publishedBooks,bookWriterInfo where publishedBooks.ISBN_ISSN=bookWriterInfo.ISBN_ISSN AND extract(year from publishedBooks.publicationYear) > "
-				+ year + " order by publicationYear desc, publishedBooks.ISBN_ISSN asc";
+		String sql = "select * from publishedBooks,bookWriterInfo where publishedBooks.ISBN_ISSN=bookWriterInfo.ISBN_ISSN order by publicationYear desc, publishedBooks.ISBN_ISSN asc";
 		PreparedStatement ps;
 		try {
 			ps = con.prepareStatement(sql);
