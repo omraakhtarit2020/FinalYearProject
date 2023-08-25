@@ -1,4 +1,4 @@
-package ProjProgram;
+package com.marvel.program;
 
 public class ProgramData {
 	private String conductingYear,programName,participantsNumber,startDate,endDate,link;

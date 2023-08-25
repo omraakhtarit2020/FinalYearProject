@@ -1,4 +1,4 @@
-package projPublishedBooks;
+package com.marvel.publishedbooks;
 
 import java.io.InputStream;
 import java.sql.Connection;

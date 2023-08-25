@@ -21,70 +21,12 @@
 body {
 	background: rgb(238, 226, 220);
 }
-.dropdown-submenu {
-	position: relative;
+.menu-options{
+  color: #fff; !important
 }
-.dropdown-submenu>.dropdown-menu {
-	top: 0;
-	left: 100%;
-	margin-top: -6px;
-	margin-left: -1px;
-	-webkit-border-radius: 0 6px 6px 6px;
-	-moz-border-radius: 0 6px 6px;
-	border-radius: 0 6px 6px 6px;
-}
-.dropdown-submenu:hover>.dropdown-menu {
-	display: block;
-}
-.dropdown-submenu>a:after {
-	display: block;
-	content: " ";
-	float: right;
-	width: 0;
-	height: 0;
-	border-color: transparent;
-	border-style: solid;
-	border-width: 5px 0 5px 5px;
-	border-left-color: #ccc;
-	margin-top: 5px;
-	margin-right: -10px;
-}
-.dropdown-submenu:hover>a:after {
-	border-left-color: #fff;
-}
-.dropdown-submenu.pull-left {
-	float: none;
-}
-.dropdown-submenu.pull-left>.dropdown-menu {
-	left: -100%;
-	margin-left: 10px;
-	-webkit-border-radius: 6px 0 6px 6px;
-	-moz-border-radius: 6px 0 6px 6px;
-	border-radius: 6px 0 6px 6px;
-}
-#options {
-	visibility: hidden;
-	position: absolute;
-	background-color: #384047;
-	box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
-	margin-top: 100px;
-	margin-left: 13em;
-	padding: 10px
-}
-#options a {
-	visibility: hidden;
-	color: #fff;
-	padding: 10px;
-	text-decoration: none;
-	padding: 20px 40px;
-}
-button {
-	border: none;
-	cursor: pointer;
-}
-.user-btn {
-	border-radius: 50%;
-}
+.menu-options:hover{
+   color: #fff;
+ }
 </style>
 </head>
 <body>
@@ -92,92 +34,79 @@ button {
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	%>
 	
-	<nav class="navbar navbar-expand-lg navbar-white bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-white bg-dark ">
 
 		<img src="collegelogo.jpg" width="40" height="40"
 			alt="">
 
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-
-				<li class="nav-item active">
-					<a class="nav-link text-white bg-dark" href="index.jsp">Home
-					<span class="sr-only">(current)</span>
-					</a>
-				</li>
-
-				<!-- Dropdown -->
-				<li class="nav-item dropdown">
-					<a class="dropdown-toggle nav-link btn text-light" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> NAAC </a>
-					<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-						
-						<li class="dropdown-submenu">
-							<a class="dropdown-item" tabindex="-1" href="reports.jsp">Reports</a>
-							<!-- <ul class="dropdown-menu">
-								<li class="dropdown-item"><a href="depSelect.jsp">Staff Information</a></li>
-							</ul>  -->
-						</li>
-					</ul>
-				</li>
-				
-				<li class="nav-item dropdown">
-					<a class="dropdown-toggle nav-link btn text-light" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Faculty Corner </a>
-					<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-					<li class="dropdown-submenu"><li class="dropdown-item"><a class="text-dark" href="PublishBook.jsp">Published Books</a></li>
-						<li class="dropdown-item"><a class="text-dark" href="journals.jsp">Journals of Faculty</a></li>
-						<li class="dropdown-item"><a class="text-dark" href="depSelect.jsp">Staff Information</a></li>
-					</li>
-					
-					</ul>
-						</li>
-				
-				<li class="nav-item dropdown">
-					<a class="dropdown-toggle nav-link btn text-light" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Institution Corner </a>
-					<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-					<li class="dropdown-submenu">
-					<li class="dropdown-item"><a class="text-dark" href="awards.jsp">Awards</a></li>
-								<li class="dropdown-item"><a class="text-dark" href="#">Collaboration</a></li>
-								<li class="dropdown-item"><a class="text-dark" href="#">Extension/Outreach Program</a></li>
-								<li class="dropdown-item"><a class="text-dark" href="Program.jsp">Tech Programs</a></li>
-					</li>
-					
-					</ul>
-						</li>
-					
-					<li class="nav-item active">
-					<a class="nav-link text-white bg-dark" href="help.jsp">Help <span
-						class="sr-only">(current)</span></a></li>
-			</ul>
-
-
-			<span class="form-inline my-2 my-lg-0 px-5 ">
-
-				<p class="my-0 py-0 text-white bg-dark" id="uname"></p>
-				&nbsp;&nbsp;&nbsp;
-				<button class="user-btn" onmouseover="myFuncHover(event)">
-					<img class="rounded-circle mx-2 user-btn" src="photo_6165537970338247539_x.jpg" width="30px"
-						height="25px" alt="">
-				</button>
-
-				<div id="options" onmouseout="myFunHoverOff(event)">
-				
-				
-				
-					<a id="opt-atag" role =button>My Details</a>
-					
-					
-					
-				</div>
-				<button class=" btn btn-light mx-2 " id="signout" href="#">Sign
-					Out</button>
-			</span>
-		</div>
+		<div class="collapse navbar-collapse container-fluid" id="navbarNavDropdown">
+			<ul class="navbar-nav ">
+				      <li class="nav-item active">
+				        <a class="nav-link menu-options" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+				      </li>
+				      <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle menu-options" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+				          Reports
+				        </a>
+				        <div class="dropdown-menu">
+				          <a class="dropdown-item" href="reports.jsp">NACC</a>
+				          <a class=" dropdown-item dropdown-toggle" role="button" data-toggle="dropdown" href="#">Staff Information</a>
+				          <ul class="dropdown-menu">
+							  <li><a class="dropdown-item" href="userInfo.jsp">Basic Information</a></li>
+							  <li><a class="dropdown-item"href="depSelect.jsp">Detailed Information</a></li>
+							</ul>
+				        </div>
+				      </li>
+				      
+				      <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle menu-options" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+				          Faculty Corner
+				        </a>
+				        <div class="dropdown-menu">
+				          <a class="dropdown-item" href="#">Professional</a>
+				          <a class="dropdown-item dropdown-toggle" role="button" data-toggle="dropdown" href="#">Educational</a>
+				          <ul class="dropdown-menu">
+							  <li><a class="dropdown-item" href="publishBooksInput.jsp">Published Books</a></li>
+							  <li><a class="dropdown-item"href="journals.jsp">Journals</a></li>
+							</ul>
+				          <a class="dropdown-item" href="#">Personal</a>
+				        </div>
+				      </li>
+				      
+				      <li class="nav-item dropdown">
+				        <a class="nav-link dropdown-toggle menu-options" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+				          Institute Corner
+				        </a>
+				        <div class="dropdown-menu">
+				          <a class="dropdown-item" href="#">Awards</a>
+				          <a class="dropdown-item" href="extension.jsp">Extension/Outreach Program</a>
+				          <a class="dropdown-item" href="#">Collaboration</a>
+				          <a class="dropdown-item" href="Program">Tech Program</a>
+				        </div>
+				      </li>
+		    </ul>
+		   
+		    <ul class="nav navbar-nav navbar-right d-flex">
+		     <p class="text-white bg-dark mr-3 mt-3" id="uname"></p>
+		      <li class="nav-item dropdown">
+		               
+				        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+				          <img src="photo_6165537970338247539_x.jpg"width="40" height="40">
+				        </a>
+				        <div class="dropdown-menu dropdown-menu-right">
+				          <a class="dropdown-item" id="opt-atag" href="myDetails.jsp">My Details</a>
+				          <a class="dropdown-item" id="signout" href="#">Sign Out</a>
+				        </div>
+				      </li>
+          </ul>
+       </div>
 	</nav>
 	<div class="mx-2alert alert-light" role="alert"
 		style="background: rgb(217, 176, 140)">
-		<h1 class="text-center" style="color: black">TEDNex</h1>
+		<h1 class="text-center" style="color: black">MARVEL</h1>
 	</div>
+	
 	<script>
         const name = `<%=session.getAttribute("user")%>`;
    		let uname = document.getElementById('uname');
@@ -248,23 +177,6 @@ button {
 		 	// send the request
 		    xhr.send();
    			}
-   		
-   		
-   		
-   		
-   		
-   		function myFuncHover(event){
-			let obj=document.querySelector('#options');
-			let obj2=obj.querySelector("#opt-atag");
-				obj.style.visibility = 'visible';
-				obj2.style.visibility = 'visible';
-		}
-		function myFunHoverOff(evemt){
-				let obj=document.querySelector('#options');
-				let obj2=obj.querySelector("#opt-atag");
-				obj.style.visibility = 'hidden';
-				obj2.style.visibility = 'hidden';
-		}
 </script>
 
 	<script

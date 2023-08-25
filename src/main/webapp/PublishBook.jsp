@@ -10,7 +10,7 @@
 </head>
 <body>
 	<%@ include file="nav.jsp" %>
-	<%@page import="projPublishedBooks.*"%>
+	<%@page import="com.marvel.publishedbooks.*"%>
 	<%@page import="java.util.*"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -27,8 +27,8 @@
     <div id="alert"></div>
     
 	<div class="container btn-toolbar justify-content-between">
-		<div class="mb-2">
-        	<button type="button" onclick="addNewField()" class="btn btn-success mt-4 margl" data-bs-toggle="modal" data-bs-target="#exampleModal" style="border-radius: 10px">Add New Field  <b>&nbsp;+</b></button>
+		<div class="mb-5 mt-5">
+        	<button type="button" class="btn btn-success" id="download" onclick="downloadClickHandler()">Download</button>
     	</div>
 		<!--  <div>
 			
@@ -50,7 +50,7 @@
                 <th>ISBN/ISSN Number Of The Proceeding</th>
                 <th>Whether at The Time Of Publication Affiliating Institution Was Same</th>
                 <th> Name Of The Publisher</th>
-                <th colspan="2">Actions</th>
+                <!-- <th colspan="2">Actions</th> -->
             </tr>
             </thead>
             <tbody class="text-center" style="">
@@ -64,7 +64,7 @@
                 	<td>${book.getISBN_ISSN()}</td>
                 	<td>${book.getSameAffilatingInstitution()}</td>
                 	<td>${book.getPublisherName()}</td>
-                	<td style="width:10px">
+                	<!-- <td style="width:10px">
                 		<a class="btn btn-dark" onclick="edit(`${book.getTeacherName()}`,`${book.getBookTitle()}`,`${book.getPaperTitle()}`,`${book.getTitleOfProceedingsOfTheConference()}`,`${book.getPublicationYear()}`,`${book.getISBN_ISSN()}`,`${book.getSameAffilatingInstitution()}`,`${book.getPublisherName()}`)" role="button">Edit</a>
                 	</td>
                 	<td style="width:10px">
@@ -74,7 +74,7 @@
                 			<button class="btn btn-dark" role="button" type="submit">Delete</button>
                 		</form>
                 		
-                	</td>
+                	</td> -->
             </tr>
             </c:forEach>
                         
@@ -83,15 +83,15 @@
         </table>
 
     </div>
-    <div class="container my-2">
+    <!--<div class="container my-2">
   		<div class="row justify-content-md-center">
     
     		<div class="col-md-auto">
-      			<button type="button" class="btn btn-success" id="download" onclick="downloadClickHandler()">Download</button>
+      			
     		</div>
     
   		</div>
-  	</div>
+  	</div>  -->
 
     
     

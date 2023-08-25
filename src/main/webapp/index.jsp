@@ -50,7 +50,7 @@
 		//}
   //}
   var edit = `<%= userInfo.getSubject() %>`;
-	edit = (edit === "null") ? "Department:" : edit;
+	edit = (edit === "null") ? "Department:" : "Department: " + edit;
 
 	// Now, you can set the card title with the updated value
 	const cardTitle = document.querySelector(".card-title");

@@ -40,7 +40,7 @@
 </head>
 <body>
 	<%@ include file="nav.jsp"%>
-	<%@page import="ProjProgram.*"%>
+	<%@page import="com.marvel.program.*"%>
 	<%@page import="java.util.*"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>

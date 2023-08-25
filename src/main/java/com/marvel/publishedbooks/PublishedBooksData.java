@@ -1,4 +1,4 @@
-package projPublishedBooks;
+package com.marvel.publishedbooks;
 
 public class PublishedBooksData {
 	private String teacherName, bookTitle, paperTitle, titleOfProceedingsOfTheConference, publicationYear, ISBN_ISSN, sameAffilatingInstitution, publisherName;

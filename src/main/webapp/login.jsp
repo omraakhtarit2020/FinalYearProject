@@ -41,7 +41,9 @@
             <div class="col" style="outline: 2px solid rgb(32, 18, 93);margin-top: 25px;">
                 <div class="container" style="width:800px;margin-top:55px">
 
-                    <div style="text-align: left;"> <h2>Welcome to Digital Resource Library</h2></div>
+                    <div style="text-align: left;"> <h2>Welcome to MARVEL</h2>
+                       <p>(Multimedia Academic Resources & Virtual Exchange for Learning)</p>
+                    </div>
                     <br>
                     <div style="text-align: left;"><h3>Please signup/login to continue</h3></div>
                     
@@ -243,6 +245,10 @@
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
+    <script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->

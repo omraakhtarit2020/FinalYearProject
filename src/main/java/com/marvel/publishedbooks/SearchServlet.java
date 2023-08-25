@@ -1,6 +1,8 @@
-package projPublishedBooks;
+package com.marvel.publishedbooks;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PublishedBooksDeleteServlet
+ * Servlet implementation class SearchServlet
  */
-@WebServlet("/PublishedBooksDeleteServlet")
-public class PublishedBooksDeleteServlet extends HttpServlet {
+@WebServlet("/SearchServlet")
+public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PublishedBooksDeleteServlet() {
+    public SearchServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +29,7 @@ public class PublishedBooksDeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -35,14 +37,21 @@ public class PublishedBooksDeleteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//System.out.println("1");
-		String teacherName = request.getParameter("TeacherName");
-		String ISBN_ISSN = request.getParameter("ISBN");
+		PrintWriter out=response.getWriter();
+		response.setContentType("text/html");
 		
+		String ISBN=request.getParameter("ISBN");
 		PublishedBooksDaw pbd=new PublishedBooksDaw();
-		pbd.delete(teacherName,ISBN_ISSN);
-		
-		request.getRequestDispatcher("PublishBook.jsp").forward(request, response);
+		PublishedBooksData pb=new PublishedBooksData();
+		pb=pbd.search(ISBN);
+		String result="";
+		//System.out.println("1");
+		if(pb!=null) {
+			//System.out.println("0");
+			result = pb.getBookTitle()+" "+pb.getPaperTitle()+" "+pb.getTitleOfProceedingsOfTheConference()+" "+pb.getPublicationYear()+" "+pb.getSameAffilatingInstitution()+" "+pb.getPublisherName();
+		}
+		//System.out.println(result);
+		out.print(result);
 	}
 
 }

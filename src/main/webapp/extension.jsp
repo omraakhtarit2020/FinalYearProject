@@ -40,15 +40,15 @@
 </head>
 <body>
 	<%@ include file="nav.jsp"%>
-	<%@page import="ProjProgram.*"%>
+	<%@page import="com.marvel.extension.*"%>
 	<%@page import="java.util.*"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 	<%
-	ProgramDaw pd = new ProgramDaw();
-	List<ProgramData> progData = pd.getAllInfo(0);
-	request.setAttribute("progData", progData);
+	extensionDaw ed = new extensionDaw();
+	List<extensionData> extData = ed.getAllInfo();
+	request.setAttribute("extData", extData);
 	%>
 
 
@@ -73,45 +73,31 @@
 
 	<div class="container btn-toolbar justify-content-between">
 		<div>
-			<button type="button" onclick="addNewField()" class="btn btn-success mt-4 margl"
-				data-bs-toggle="modal" data-bs-target="#exampleModal"
-				style="border-radius: 10px">
+			<button type="button" onclick="addNewField()"
+				class="btn btn-success mt-4 margl mb-4" data-bs-toggle="modal"
+				data-bs-target="#exampleModal" style="border-radius: 10px">
 				Add New Field <b>&nbsp;+</b>
 			</button>
-		</div>
-		<div>
-
-			<input type="text" class="mt-4 mb-4 mr-1 margr"
-				placeholder="Type to Search"
-				style="padding: 4.8px; outline: none; border: none; width: 200px; border-radius: 20px;">
-			<button type="submit" class="btn btn-dark mt-4 mb-4"
-				style="border-radius: 10px">Search</button>
 		</div>
 
 		<table class="table table-striped">
 			<thead style="background-color: #dbd0b5;">
 				<tr style="text-align: center">
-					<th>Name of the Activity</th>
-					<th>Organizing unit/ Agency/ Collaborating Agency</th>
+					<th>Extension Activity</th>
+					<th>Organising unit/ agency/ collaborating Agency</th>
 					<th>Name of the Scheme</th>
 					<th>Year of the Activity</th>
-					<th>No. of students participating in such activities</th>
-					<th colspan="2">Actions</th>
+					<th>No. of students participated in such activities</th>
 				</tr>
 			</thead>
 			<tbody class="text-center" style="">
-				<c:forEach items="${progData}" var="prog">
+				<c:forEach items="${extData}" var="ext">
 					<tr>
-						<td name="ConductingYear">${prog.getConductingYear()}</td>
-						<td name="ProgramName">${prog.getProgramName()}</td>
-						<td name="ParticipantsNumber">${prog.getParticipantsNumber()}</td>
-						<td name="ConductingDate">${prog.getStartDate()} To ${prog.getEndDate()}</td>
-						<c:set var="shortLink" value="${fn:substring(prog.getLink(), 0, 40)}" />
-						<td name="Link">${shortLink}</td>
-						<td style="width: 10px"><button class="btn btn-dark" href=""
-							role="button" onclick="Edit(`${prog.getConductingYear()}`,`${prog.getProgramName()}`,${prog.getParticipantsNumber()},`${prog.getStartDate()}`,`${prog.getEndDate()}`,`${prog.getLink()}`)">Edit</button></td>
-						<td style="width: 10px"><a class="btn btn-dark" href="ProgDelete.jsp?pname=${prog.getLink()}"
-							role="button">Delete</a></td>
+						<td name="extensionActivity">${ext.getExtensionActivity()}</td>
+						<td name="extensionAgency">${ext.getExtensionAgency()}</td>
+						<td name="extensionScheme">${ext.getExtensionScheme()}</td>
+						<td name="extensionYear">${ext.getExtensionYear()}</td>
+					    <td name="extensionNoStudent">${ext.getExtensionNoStudent()}</td>
 				</c:forEach>
 			</tbody>
 		</table>
@@ -119,68 +105,60 @@
 	</div>
 
 
-	<form action="programServlet" id="form" method="post">
-		<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<form action="extensionServlet" id="form" method="post">
+		<div class="modal fade" id="exampleModal" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
-				<div class="modal-content text-center">
+				<div class="modal-content">
 					<div class="modal-header">
-						<h5 style:"text-aline=center;">
-							<b>Seminars / Workshops / Conferences</b>
-						</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						<h5 class="modal-title text-center" id="exampleModalLabel">Extension</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="conductingYear" id="conductingYearLabel" class="font-weight-bold mb-0" style="display: none">Conducting Year: </label>
-							<input type="text" class="form-control mb-3" id="conductingYear"
-							name="conductingYear" placeholder="Conducting Year"
-							style="border-radius: 30px; width: 400px; margin: auto; border: 2px solid; display:none;" readonly>
-						
-							<label for="programName" class="font-weight-bold mb-0">Name of The Program: </label>
-							<div class="text-danger" id="programNameError1" style="display:none">This field is mandatory</div>
-							<div class="text-danger" id="programNameError2" style="display:none">Invalid Program Name</div>
-							<input type="text" onkeyup="programNameCheck()" class="form-control  mb-3" id="programName"
-							name="programName"
-							placeholder="Name of the Seminars / Workshops / Conferences"
+							<label for="extensionActivity" class="font-weight-bold mb-0">Extension Activity: </label>
+							<div class="text-danger" id="extensionActivityError1" style="display:none">This field is mandatory</div>
+							<div class="text-danger" id="extensionActivityError2" style="display:none">Invalid Extension Activity</div>
+							<input type="text" onkeyup="extensionActivityCheck()" class="form-control  mb-3" id="extensionActivity" name="extensionActivity"
+							placeholder="Extension Activity"
 							style="border-radius: 30px; width: 400px; margin: auto; border: 2px solid;">
-							<input type="text" id="programNamePrev" name="programNamePrev" style="display:none">
+
 							
 						
-							<label for="participantsNumber" class="font-weight-bold mb-0">Number of Participants: </label>
-							<div class="text-danger" id="participantsNumberError" style="display:none">This field is mandatory</div>
-							<input type="number" onkeyup="participantsNumberCheck()" class="form-control mb-3"
-							id="participantsNumber" name="participantsNumber"
-							placeholder="Number of participants"
+							<label for="extensionAgency" class="font-weight-bold mb-0">Extension Agency: </label>
+							<div class="text-danger" id="extensionAgencyError" style="display:none">This field is mandatory</div>
+							<input type="text" onkeyup="extensionAgencyCheck()" class="form-control mb-3"
+							id="extensionAgency" name="extensionAgency"
+							placeholder="Extension Agency"
 							style="border-radius: 30px; width: 400px; margin: auto; border: 2px solid;">
-							<input type="number" id="participantsNumberPrev" name="participantsNumberPrev" style="display:none">
+							
+							
+							<label for="extensionScheme" class="font-weight-bold mb-0">Extension Scheme: </label>
+							<div class="text-danger" id="extensionSchemeError" style="display:none">This field is mandatory</div>
+							<input type="text" onkeyup="extensionSchemeCheck()" class="form-control mb-3"
+							id="extensionScheme" name="extensionScheme"
+							placeholder="Extension Scheme"
+							style="border-radius: 30px; width: 400px; margin: auto; border: 2px solid;">
+							
 						
-							<label for="conductingDate" class="font-weight-bold mb-0 mx-1">Conducting Dates: </label>
-							<div class="text-danger" id="dateError1" style="display:none">This fields are mandatory.</div>
-							<div class="text-danger" id="dateError2" style="display:none">End date can not be smaller than Start date.</div>
-							<span class="row">
-								<label for="" class="font-weight-bold mb-0 ml-5 mr-0 col-2">From:</label>
-								<input type="date" onchange="dateCheck()" class="form-control mb-3 ml-0 col-6"
-								id="startDate" name="startDate"
-								style="border-radius: 30px; width: 200px; margin: auto; border: 2px solid;">
-								<input type="date" id="startDatePrev" name="startDatePrev" style="display:none">
-							</span>
-							<span class="row">
-								<label for="" class="font-weight-bold mb-0 ml-5 mr-0 col-2">To:</label>
-								<input type="date" onchange="dateCheck()" class="form-control mb-3 ml-0 col-6"
-								id="endDate" name="endDate"
-								style="border-radius: 30px; width: 200px; margin: auto; border: 2px solid;">
-								<input type="date" id="endDatePrev" name="endDatePrev" style="display:none">
-							</span>
+							<label
+								for="extensionYear" class="font-weight-bold mb-0">Year Of Extension: </label>
+							<select  class="form-control mb-3" id="extensionYear" name="extensionYear" onfocus="selectYear()"
+								style="border-radius: 30px; width: 400px; margin: auto; border: 2px solid;">
+								<option value="Select year" selected >Select Year</option>
+							</select>
+							
+							<label
+								for="extensionNoStudent" class="font-weight-bold mb-0">No. of students participated in such activities: </label>
+							<input type="number" onkeyup="extensionNoStudentCheck()" class="form-control mb-3"
+							    id="extensionNoStudent" name="extensionNoStudent"
+							    placeholder="Extension student"
+							    style="border-radius: 30px; width: 400px; margin: auto; border: 2px solid;">
+							<div class="text-danger" id="extensionNoStudentError" style="display:none">This field is mandatory</div>
+							<div class="text-danger" id="extensionNoStudentError1" style="display:none">Cannot be negative</div>
 
-						
-							<label for="link" class="font-weight-bold mb-0">Link to the Activity Report on The Website: </label>
-							<div class="text-danger" id="linkError1" style="display:none">This field is mandatory.</div>
-							<div class="text-danger" id="linkError2" style="display:none">Invalid Link.</div>
-							<input type="text" onkeyup="linkCheck()" class="form-control mb-3" id="link"
-							name="link"
-							placeholder="Link to the activity report on the website"
-							style="border-radius: 30px; width: 400px; margin: auto; border: 2px solid;">
-							<input type="text" id="linkPrev" name="linkPrev" style="display:none">
+                            
 						</div>
 					</div>
 					<div class="modal-footer mx-auto">
@@ -203,230 +181,124 @@
 		</div>
 	</div>
 	
-	<script>
-	    //const email=document.querySelectorAll(".conductingYear");
-	    //const error= document.querySelector(".error-text");
-	    //const btn=document.querySelector("button");
-	    //let regExp=/^[12][0-9]{3}$;
-	    //function check(){
-	        //if(email.value.match(regExp)){
-	            //email.style.borderColor="#27ae60";
-	            //error.style.display="none";
-	            //btn.style.display="block";
-	        //}else{
-	            //email.style.borderColor="#e74c3c";
-	            //error.style.display="block";
-	            //btn.style.display="none";
-	            
-	        //}
-	        //if(email.value==""){
-	            //email.style.borderColor="rgb(32, 18, 93)";
-	            //error.style.display="none";
-	            //btn.style.display="block";
-	        //}
-	    //}
-	</script>
+
 
 	<script type="text/javascript">
-		
-		const conductingYear=document.getElementById("conductingYear");
-		const conductingYearLabel=document.getElementById("conductingYearLabel");
-		
-		const programName=document.getElementById("programName");
-		const programNamePrev=document.getElementById("programNamePrev");
-		
-		const participantsNumber=document.getElementById("participantsNumber");
-		const participantsNumberPrev=document.getElementById("participantsNumberPrev");
-		
-		const startDate=document.getElementById("startDate");
-		const startDatePrev=document.getElementById("startDatePrev");
-		
-		const endDate=document.getElementById("endDate");
-		const endDatePrev=document.getElementById("endDatePrev");
-		
-		const link=document.getElementById("link");
-		const linkPrev=document.getElementById("linkPrev");
-		
-		const submitButton=document.getElementById("submit");
-		const resetButton=document.getElementById("reset");
-		const editButton=document.getElementById("edit");
-		
-		const form=document.getElementById("form");
-		
-		var error = [0,0,0,0,0];
-		
-		<!-- Constraint for Program name -->
-		function programNameCheck(){
-			
-			let regex = /^[a-zA-Z ]*$/;
-			if(programName.value.match(regex) && programName.value != ""){
-				document.getElementById("programNameError1").style.display="none";
-				document.getElementById("programNameError2").style.display="none";
-				error[0]=1;
-			} else if(programName.value === ""){
-				document.getElementById("programNameError1").style.display="block";
-				document.getElementById("programNameError2").style.display="none";
-				error[0]=0;
-			} else{
-				document.getElementById("programNameError1").style.display="none";
-				document.getElementById("programNameError2").style.display="block";
-				error[0]=0;
-			}
-			check();
-		}
-		
-		<!-- Constraint for Participants Number -->
-		function participantsNumberCheck(){
-			
-			if(participantsNumber.value === ""){
-				document.getElementById("participantsNumberError").style.display="block";
-				error[1]=0;
-			}else{
-				document.getElementById("participantsNumberError").style.display="none";
-				error[1]=1;
-			}
-			check();
-		}
-		
-		<!-- Constraint for Dates -->
-		function dateCheck(){
-			
-			if(startDate.value === "" || endDate.value === ""){
-				document.getElementById("dateError1").style.display="block";
-				document.getElementById("dateError2").style.display="none";
-				error[2]=0;
-				error[3]=0;
-			}else if(startDate.value>endDate.value && startDate.value != "" && endDate.value != ""){
-				document.getElementById("dateError1").style.display="none";
-				document.getElementById("dateError2").style.display="block";
-				error[2]=0;
-				error[3]=0;
-			}else{
-				document.getElementById("dateError1").style.display="none";
-				document.getElementById("dateError2").style.display="none";
-				error[2]=1;
-				error[3]=1;
-			}
-			check();
-		}
-		function endDateCheck(){
-			
-			if(endDate.value === ""){
-				document.getElementById("dateError1").style.display="block";
-				document.getElementById("dateError2").style.display="none";
-				error[3]=0;
-			}else if(startDate.value>endDate.value){
-				document.getElementById("dateError1").style.display="none";
-				document.getElementById("dateError2").style.display="block";
-				error[3]=0;
-			}
-			else{
-				document.getElementById("dateError1").style.display="none";
-				document.getElementById("dateError2").style.display="none";
-				error[3]=1;
-			}
-			check();
-		}
-		
-		<!-- Constraint for Link -->
-		function linkCheck(){
-			
-			let regex = /^(http(s):\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/;
-			if(link.value.match(regex) && link.value != ""){
-				document.getElementById("linkError1").style.display="none";
-				document.getElementById("linkError2").style.display="none";
-				error[4]=1;
-			}else if(link.value === ""){
-				document.getElementById("linkError1").style.display="block";
-				document.getElementById("linkError2").style.display="none";
-				error[4]=0;
-			}else{
-				document.getElementById("linkError1").style.display="none";
-				document.getElementById("linkError2").style.display="block";
-				error[4]=0;
-			}
-			check();
-		}
-		
-		function check(){
-			if(error.includes(0)){
-				submitButton.disabled=true;
-				editButton.disabled=true;
-			} else{
-				submitButton.disabled=false;
-				editButton.disabled=false;
-			}
-		}
-		
-		//Functionality of Add New Field button
-		function addNewField(){
-			error = [0,0,0,0,0];
-			let myModal = new bootstrap.Modal(document.getElementById('Modal'), {});
-			myModal.show();
-			submitButton.disabled=true;
-			conductingYear.style.display="none";
-			conductingYearLabel.style.display="none";
-			programName.value="";
-			participantsNumber.value="";
-			startDate.value="";
-			endDate.value="";
-			link.value="";
-			submitButton.style.display="block";
-			resetButton.style.display="block";
-			editButton.style.display="none";
-			form.action="programServlet";
-		}
-		
-		//Functionality of Edit button & populating Edit form with data from table
-		function Edit(conductingYearValue,programNameValue,participantsNumberValue,startDateValue,endDateValue,linkValue){
-			error = [1,1,1,1,1];
-			let myModal = new bootstrap.Modal(document.getElementById('Modal'), {});
-			myModal.show();
-			conductingYear.style.display="block";
-			conductingYearLabel.style.display="block";
-			
-			conductingYear.value=conductingYearValue;
-			
-			programName.value=programNameValue;
-			programNamePrev.value=programNameValue;
-			
-			participantsNumber.value=participantsNumberValue;
-			participantsNumberPrev.value=participantsNumberValue;
-			
-			startDate.value=startDateValue;
-			startDatePrev.value=startDateValue;
-			
-			endDate.value=endDateValue;
-			endDatePrev.value=endDateValue;
-			
-			link.value=linkValue;
-			linkPrev.value=linkValue;
-			
-			submitButton.style.display="none";
-			resetButton.style.display="none";
-			editButton.style.display="block";
-			editButton.disabled=false;
-			form.action="ProgramEditServlet";
-		}
-		//function edit(ConductingYear,ProgramName,ParticipantsNumber,ConductingDate,Link){
-		//	console.log(ConductingYear+' '+ProgramName+' '+ParticipantsNumber+' '+ConductingDate+' '+Link);
-		//	console.log(1);
-			
-		//	let myModal = new bootstrap.Modal(document.getElementById('Modal'), {});
-		//	myModal.show();
-			
-		//	document.querySelector("input.conductingYear").value=ConductingYear;
-		//	document.querySelector("input.conductingYearPrev").value=ConductingYear;
-		//	document.querySelector("input.programName").value=ProgramName;
-		//	document.querySelector("input.programNamePrev").value=ProgramName;
-		//	document.querySelector("input.participantsNumber").value=ParticipantsNumber;
-		//	document.querySelector("input.participantsNumberPrev").value=ParticipantsNumber;
-		//	document.querySelector("input.conductingDate").value=ConductingDate;
-		//	document.querySelector("input.conductingDatePrev").value=ConductingDate;
-		//	document.querySelector("input.link").value=Link;
-		//	document.querySelector("input.linkPrev").value=Link;
-		//}
 	
+	function selectYear() {
+	    var currentYear = new Date().getFullYear();
+	    var selectElement = document.querySelector('#extensionYear');
+	    var options = "";
+
+	    for (var year = currentYear; year >= 1945; year--) {
+	        options += "<option value='" + year + "'>" + year + "</option>";
+	    }
+
+	    selectElement.innerHTML = options;
+	}
+	selectYear();
+
+	const extensionActivity = document.getElementById("extensionActivity");
+	const extensionAgency = document.getElementById("extensionAgency");
+	const extensionScheme = document.getElementById("extensionScheme");
+	const extensionYear = document.getElementById("extensionYear");
+	const extensionNoStudent = document.getElementById("extensionNoStudent");
+	const submitButton = document.getElementById("submit");
+	const resetButton = document.getElementById("reset");
+	const editButton = document.getElementById("edit");
+	const form = document.getElementById("form");
+
+	var error = [0, 0, 0, 0];
+
+	function extensionActivityCheck() {
+	    let regex = /^[a-zA-Z ]*$/;
+	    if (extensionActivity.value.match(regex) && extensionActivity.value !== "") {
+	        document.getElementById("extensionActivityError1").style.display = "none";
+	        document.getElementById("extensionActivityError2").style.display = "none";
+	        error[0] = 1;
+	    } else if (extensionActivity.value === "") {
+	        document.getElementById("extensionActivityError1").style.display = "block";
+	        document.getElementById("extensionActivityError2").style.display = "none";
+	        error[0] = 0;
+	    } else {
+	        document.getElementById("extensionActivityError1").style.display = "none";
+	        document.getElementById("extensionActivityError2").style.display = "block";
+	        error[0] = 0;
+	    }
+	    check();
+	}
+
+	function extensionAgencyCheck() {
+	    if (extensionAgency.value === "") {
+	        document.getElementById("extensionAgencyError").style.display = "block";
+	        error[1] = 0;
+	    } else {
+	        document.getElementById("extensionAgencyError").style.display = "none";
+	        error[1] = 1;
+	    }
+	    check();
+	}
+
+	function extensionSchemeCheck() {
+	    let regex = /^[a-zA-Z ]*$/;
+	    if (extensionScheme.value.match(regex) && extensionScheme.value !== "") {
+	        document.getElementById("extensionSchemeError").style.display = "none";
+	        error[2] = 1;
+	    } else if (extensionScheme.value === "") {
+	        document.getElementById("extensionSchemeError").style.display = "block";
+	        error[2] = 0;
+	    } else {
+	        document.getElementById("extensionSchemeError").style.display = "none";
+	        error[2] = 0;
+	    }
+	    check();
+	}
+	
+	function extensionNoStudentCheck() {
+	    if (extensionNoStudent.value === "") {
+	        document.getElementById("extensionNoStudentError").style.display = "block";
+	        document.getElementById("extensionNoStudentError1").style.display = "none";
+	        error[3] = 0;
+	    } else if(extensionNoStudent.value < 0){
+	    	document.getElementById("extensionNoStudentError1").style.display = "block";
+	    	document.getElementById("extensionNoStudentError").style.display = "none";
+	        error[3] = 0;
+	    }else {
+	        document.getElementById("extensionNoStudentError").style.display = "none";
+	        document.getElementById("extensionNoStudentError1").style.display = "none";
+	        error[3] = 1;
+	    }
+	    check();
+	}
+
+
+	function check() {
+	    if (error.includes(0)) {
+	        submitButton.disabled = true;
+	        editButton.disabled = true;
+	    } else {
+	        submitButton.disabled = false;
+	        editButton.disabled = false;
+	    }
+	}
+
+	function addNewField() {
+	    error = [0, 0, 0, 0];
+	    let myModal = new bootstrap.Modal(document.querySelector("#exampleModal"), {});
+	    myModal.show();
+	    submitButton.disabled = true;
+	    extensionActivity.value = "";
+	    extensionAgency.value = "";
+	    extensionScheme.value = "";
+	    extensionYear.value = "";
+	    extensionNoStudent.value = "";
+	    submitButton.style.display = "block";
+	    resetButton.style.display = "block";
+	    editButton.style.display = "none";
+	    form.action = "extensionServlet";
+	}
+
+		
 		//functionality of Download button
 		let download = document.getElementById('download');
 		download.addEventListener('click', downloadClickHandler);
@@ -436,7 +308,7 @@
 		    const xhr = new XMLHttpRequest();
 			
 		 	// USE THIS FOR POST REQUEST
-		    xhr.open('POST', 'ProgramDownloadServlet', true);
+		    xhr.open('POST', 'extensionDownloadServlet', true);
 		    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		    
 		 	// What to do when response is ready

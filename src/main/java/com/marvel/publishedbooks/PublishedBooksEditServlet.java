@@ -1,4 +1,4 @@
-package projPublishedBooks;
+package com.marvel.publishedbooks;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ProjProgram.ProgramData;
-import ProjProgram.ProgramDaw;
+import com.marvel.program.ProgramData;
+import com.marvel.program.ProgramDaw;
 
 /**
  * Servlet implementation class PublishedBooksEditServlet

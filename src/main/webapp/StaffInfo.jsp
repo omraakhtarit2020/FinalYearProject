@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Staff Informatione</title>
+<title>Staff Information</title>
 </head>
 <body>
 	<%@ include file="nav.jsp" %>

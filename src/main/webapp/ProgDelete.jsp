@@ -8,7 +8,7 @@
 </head>
 <body>
 	<%@ include file="nav.jsp"%>
-	<%@page import="ProjProgram.*"%>
+	<%@page import="com.marvel.program.*"%>
 	<%
 	ProgramDaw pd = new ProgramDaw();
 	String pname = request.getParameter("pname");
