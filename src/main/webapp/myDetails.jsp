@@ -9,69 +9,9 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-	
-	<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
-	crossorigin="anonymous">
   
     <style type="text/css">
-        * {
-          margin: 0;
-          padding: 0;
-        }
-    
-        body {
-          background: rgb(238, 226, 220);
-        }
-        
-        .dropdown-submenu {
-	position: relative;
-}
-
-.dropdown-submenu>.dropdown-menu {
-	top: 0;
-	left: 100%;
-	margin-top: -6px;
-	margin-left: -1px;
-	-webkit-border-radius: 0 6px 6px 6px;
-	-moz-border-radius: 0 6px 6px;
-	border-radius: 0 6px 6px 6px;
-}
-
-.dropdown-submenu:hover>.dropdown-menu {
-	display: block;
-}
-
-.dropdown-submenu>a:after {
-	display: block;
-	content: " ";
-	float: right;
-	width: 0;
-	height: 0;
-	border-color: transparent;
-	border-style: solid;
-	border-width: 5px 0 5px 5px;
-	border-left-color: #ccc;
-	margin-top: 5px;
-	margin-right: -10px;
-}
-
-.dropdown-submenu:hover>a:after {
-	border-left-color: #fff;
-}
-
-.dropdown-submenu.pull-left {
-	float: none;
-}
-
-.dropdown-submenu.pull-left>.dropdown-menu {
-	left: -100%;
-	margin-left: 10px;
-	-webkit-border-radius: 6px 0 6px 6px;
-	-moz-border-radius: 6px 0 6px 6px;
-	border-radius: 6px 0 6px 6px;
-}
+ 
         
         
         .multiselect {
@@ -175,18 +115,8 @@ button{
     <body>
     	<%@ include file="nav.jsp" %>
   
-        <div class="container" style="border: 2px solid green;margin-top:20px">
+        <div class="container" style="border: 2px solid white;background-color: white;margin-top:20px">
             <span style="text-align: center;"><h3>My Details </h3></span>
-            <br>
-            <div class="container" style="border: 2px solid rgb(238, 226, 220);">
-                <div class="container" style="border: 2px solid rgb(238, 226, 220);">
-                    <div class="container" style="border: 2px solid rgb(238, 226, 220);">
-                        <div class="container" style="border: 2px solid rgb(238, 226, 220);">
-                            <div class="container" style="border: 2px solid rgb(238, 226, 220);">
-                            
-                            
-                            
-                            
                                	<form action="myDetailsServlet" method="post">
                                     <label for="txtName" class="form-label "><h4 class='asterik'>Name : </h4></label>
                                     <div class="row w-100 p-3">
@@ -435,11 +365,7 @@ button{
 
                                 </form>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>      
-        </div>
+    
         
         <!-- Input field constraints -->
         <script type="text/javascript">

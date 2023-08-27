@@ -53,7 +53,7 @@
 
 
 	<div class="container-fluid"
-		style="background-color: #D9B08C; text-align: center;">
+		style="background-color: #FBFFDC; text-align: center;">
 		<div class="py-2">
 			<h4>
 				<b>Extensions & Outreach Programs  (NAAC Clause 3.3.4)</b>
@@ -81,7 +81,7 @@
 		</div>
 
 		<table class="table table-striped">
-			<thead style="background-color: #dbd0b5;">
+			<thead style="background-color: #14a098;">
 				<tr style="text-align: center">
 					<th>Extension Activity</th>
 					<th>Organising unit/ agency/ collaborating Agency</th>
@@ -175,7 +175,7 @@
 		<div class="row justify-content-md-center">
 
 			<div class="col-md-auto">
-				<button type="button" class="btn btn-success" id="download">Download</button>
+				<button type="button" class="btn text-white" style="background-color: #0f292f" id="download">Download</button>
 			</div>
 
 		</div>

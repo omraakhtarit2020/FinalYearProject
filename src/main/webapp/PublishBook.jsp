@@ -20,7 +20,7 @@
 	List<PublishedBooksData> booksData = pbd.getAllInfo();
 	request.setAttribute("booksData", booksData);
 	%>
-    <div class="container-fluid" style="background-color: #D9B08C; text-align: center;">
+    <div class="container-fluid" style="background-color: #f78888; text-align: center;">
             <div class="py-2"><h4><b>Details Of Published Books(NAAC Clause 3.2.2)</b></h4></div>
     </div>
     
@@ -28,7 +28,7 @@
     
 	<div class="container btn-toolbar justify-content-between">
 		<div class="mb-5 mt-5">
-        	<button type="button" class="btn btn-success" id="download" onclick="downloadClickHandler()">Download</button>
+        	<button type="button" class="btn text-white" style="background-color: #0f292f; id="download" onclick="downloadClickHandler()">Download</button>
     	</div>
 		<!--  <div>
 			
@@ -40,7 +40,7 @@
     
     
         <table class="table table-striped">
-            <thead style="background-color:#dbd0b5;">
+            <thead style="background-color:#14a098;">
             <tr style="text-align: center">
                 <th>Name Of The Teacher</th>
                 <th>Title Of The Book/Chapter Published</th>

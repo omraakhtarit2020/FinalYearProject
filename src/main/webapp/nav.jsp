@@ -19,13 +19,19 @@
 	padding: 0;
 }
 body {
-	background: rgb(238, 226, 220);
+	background:#ececec;
 }
 .menu-options{
   color: #fff; !important
 }
 .menu-options:hover{
    color: #fff;
+ }
+ .nav-back{
+   background:#5da2d5;
+ }
+ .nav-link:hover{
+   color:black;
  }
 </style>
 </head>
@@ -34,7 +40,7 @@ body {
 	response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
 	%>
 	
-	<nav class="navbar navbar-expand-lg navbar-white bg-dark ">
+	<nav class="navbar navbar-expand-lg nav-back">
 
 		<img src="collegelogo.jpg" width="40" height="40"
 			alt="">
@@ -88,7 +94,7 @@ body {
 		    </ul>
 		   
 		    <ul class="nav navbar-nav navbar-right d-flex">
-		     <p class="text-white bg-dark mr-3 mt-3" id="uname"></p>
+		     <p class="text-white mr-3 mt-3" id="uname"></p>
 		      <li class="nav-item dropdown">
 		               
 				        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -103,7 +109,7 @@ body {
        </div>
 	</nav>
 	<div class="mx-2alert alert-light" role="alert"
-		style="background: rgb(217, 176, 140)">
+		style="background:#f3d250">
 		<h1 class="text-center" style="color: black">MARVEL</h1>
 	</div>
 	

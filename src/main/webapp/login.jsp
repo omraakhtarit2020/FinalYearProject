@@ -37,8 +37,8 @@
 </head>
 <body>
     <div class="container my-5">
-        <div class="row" style="min-height: 500px; min-width: 509px;">
-            <div class="col" style="outline: 2px solid rgb(32, 18, 93);margin-top: 25px;">
+        <div class="row" style="min-height: 600px; max-width: 870px;margin:auto">
+            <div class="col" style="margin-top: 25px;background-color: #E9FFC2">
                 <div class="container" style="width:800px;margin-top:55px">
 
                     <div style="text-align: left;"> <h2>Welcome to MARVEL</h2>
@@ -53,14 +53,14 @@
                                 
                                 <label for="inputEmail" class="col-sm-2 col-form-label"> <b><h4>Email</h4></b></label>
                                 <div class="col-sm-10">
-                                    <input onkeyup="check()" type="text" name="txtName"class="form-control" id="inputEmail" style="background-color: rgb(180, 180, 172);" required>
+                                    <input onkeyup="check()" type="text" name="txtName"class="form-control" id="inputEmail" style="background-color: #fff;max-width: 400px" required>
                                 </div>
                             </div>
                             <div class="error-text" >please enter valid Email Address</div>
                             <div class="mb-3 row">
                                 <label for="inputPassword" class="col-sm-2 col-form-label"> <b> <h4>Password</h4></b></label>
                                 <div class="col-sm-10">
-                                    <input onkeyup="check1()" type="password" name="txtPwd" class="form-control" id="inputPassword" maxlength="16" style="background-color: rgb(180, 180, 172);"required>
+                                    <input onkeyup="check1()" type="password" name="txtPwd" class="form-control" id="inputPassword" maxlength="16" style="background-color: #fff;max-width: 400px"required>
                                 </div>
                             </div>
                         
@@ -89,7 +89,7 @@
 						        </div>
 						    </div> 
 						</div>
-                        <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 50px;">
+                        <div class="d-grid gap-2 col-4 mx-auto" style="margin-top: 80px;">
                             <button class="btn btn-primary" type="button" id="login" value="login"><b>Signup/Login</b></button>
                         </div>
                         </div>

@@ -53,7 +53,7 @@
 
 
 	<div class="container-fluid"
-		style="background-color: #D9B08C; text-align: center;">
+		style="background-color: #c4c1a4; text-align: center;">
 		<div class="py-2">
 			<h4>
 				<b>Seminars / Workshops / Conferences (NAAC Clause 3.1.3)</b>
@@ -89,7 +89,7 @@
 		</div>
 
 		<table class="table table-striped">
-			<thead style="background-color: #dbd0b5;">
+			<thead style="background-color: #14a098;">
 				<tr style="text-align: center">
 					<th>Conducting Year</th>
 					<th>Name of the Seminars/Workshops/Conferences</th>
@@ -197,7 +197,7 @@
 		<div class="row justify-content-md-center">
 
 			<div class="col-md-auto">
-				<button type="button" class="btn btn-success" id="download">Download</button>
+				<button type="button" class="btn text-white" style="background-color: #0f292f" id="download">Download</button>
 			</div>
 
 		</div>

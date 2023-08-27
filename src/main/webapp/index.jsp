@@ -10,6 +10,7 @@
      margin-top:7%;
      margin-left:20%; 
      width:60%;
+     background:#fff;
   }
 </style>
 </head>
@@ -27,7 +28,7 @@
 	<!-- <p class="text-center">welcome to home page</p> -->
 	<div class="dashboard">
 	<div class="card">
-	  <h5 class="card-header text-center">Welcome to home page</h5>
+	  <h5 class="card-header text-center" style="background:#f78888">Welcome to home page</h5>
 	  <div class="card-body" style="height:300px" id="cb">
 	    <h5 class="card-title text-center"><%=userInfo.getSubject()%></h5>
 	    <p class="card-text"></p>

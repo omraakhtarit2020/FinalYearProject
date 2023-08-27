@@ -22,7 +22,7 @@
 	%>
 
 	
-    <div class="container-fluid" style="background-color: #D9B08C; text-align: center;">
+    <div class="container-fluid" style="background-color: #ade7f3; text-align: center;">
             <div class="py-2"><h4><b>Awards and Recognitions (NAAC Clause 3.3.2)</b></h4></div>
     </div>
     
@@ -36,7 +36,7 @@
     
     
         <table class="table table-striped">
-            <thead style="background-color:#dbd0b5;">
+            <thead style="background-color:#14a098;">
             <tr style="text-align: center">
                 <th>Name of the activity</th>
                 <th>Name of the Award/ recognition for Institution</th>
@@ -154,7 +154,7 @@
   		<div class="row justify-content-md-center">
     
     		<div class="col-md-auto">
-      			<button type="button" class="btn btn-success" id="download">Download</button>
+      			<button type="button" class="btn text-white" style="background-color: #0f292f" id="download">Download</button>
     		</div>
     
   		</div>

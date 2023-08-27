@@ -53,7 +53,7 @@
 
 
 	<div class="container-fluid"
-		style="background-color: #D9B08C; text-align: center;">
+		style="background-color: #a8df8e; text-align: center;">
 		<div class="py-2">
 			<h4>
 				<b>Collaborations (NAAC Clause 3.4.1)</b>
@@ -90,7 +90,7 @@
 		</div-->
 
 		<table class="table table-striped">
-			<thead style="background-color: #dbd0b5;">
+			<thead style="background-color: #14a098;">
 				<tr style="text-align: center">
 					<!--th>serial no.</th-->
 					<th>Title of the collaborative activity</th>
@@ -261,7 +261,7 @@
 		<div class="row justify-content-md-center">
 
 			<div class="col-md-auto">
-				<button type="button" class="btn btn-success" id="download">Download</button>
+				<button type="button" class="btn text-white"  style="background-color: #0f292f" id="download">Download</button>
 			</div>
 
 		</div>
