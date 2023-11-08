@@ -33,6 +33,42 @@ body {
  .nav-link:hover{
    color:black;
  }
+ 
+ .sideways-dropdown {
+  position: absolute;
+  top: 10px;
+  left: 100%; 
+  display: none;
+  float: none; 
+  min-width: 130px; 
+  background-color: #fff; 
+  border: 1px solid #ccc; 
+  border-top: none; 
+}
+
+.sideways-dropdown li {
+  display: block;
+}
+
+.sideways-dropdown li a {
+  padding: 5px;
+  color: #333;
+  text-decoration: none;
+  display: block;
+}
+
+.sideways-dropdown li:hover {
+  background-color: #f5f5f5; 
+}
+
+.chnage.dropdown-toggle::after {
+  display: inline-block;
+  transform: rotate(-90deg);
+  margin-left: 5px; 
+  transition: transform 0.3s ease;
+}
+
+ 
 </style>
 </head>
 <body>
@@ -65,7 +101,7 @@ body {
 				        </div>
 				      </li>
 				      
-				      <li class="nav-item dropdown">
+				      <!-- <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle menu-options" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
 				          Faculty Corner
 				        </a>
@@ -78,7 +114,22 @@ body {
 							</ul>
 				          <a class="dropdown-item" href="#">Personal</a>
 				        </div>
-				      </li>
+				      </li> -->
+				      
+				      <li class="nav-item dropdown">
+						  <a class="nav-link dropdown-toggle menu-options" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+						    Faculty Corner
+						  </a>
+						  <div class="dropdown-menu">
+						    <a class="dropdown-item" href="#">Professional</a>
+						    <a class="dropdown-item dropdown-toggle chnage" role="button" data-toggle="dropdown" href="#">Educational</a>
+						    <ul class="dropdown-menu sideways-dropdown">
+						      <li><a class="" href="publishBooksInput.jsp">Published Books</a></li>
+						      <li><a class="" href="journals.jsp">Journals</a></li>
+						    </ul>
+						    <a class="dropdown-item" href="#">Personal</a>
+						  </div>
+						</li>
 				      
 				      <li class="nav-item dropdown">
 				        <a class="nav-link dropdown-toggle menu-options" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -90,6 +141,9 @@ body {
 				          <a class="dropdown-item" href="#">Collaboration</a>
 				          <a class="dropdown-item" href="Program">Tech Program</a>
 				        </div>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link menu-options" href="">Making Committee<span class="sr-only">(current)</span></a>
 				      </li>
 		    </ul>
 		   
