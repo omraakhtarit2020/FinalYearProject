@@ -78,7 +78,7 @@ body {
 	
 	<nav class="navbar navbar-expand-lg nav-back">
 
-		<img src="collegelogo.jpg" width="40" height="40"
+		<img src="collegelogo.png" width="40" height="40"
 			alt="">
 
 
@@ -152,7 +152,7 @@ body {
 		      <li class="nav-item dropdown">
 		               
 				        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-				          <img src="photo_6165537970338247539_x.jpg"width="40" height="40">
+				          <img src="profile_photo.png"width="40" height="40">
 				        </a>
 				        <div class="dropdown-menu dropdown-menu-right">
 				          <a class="dropdown-item" id="opt-atag" href="myDetails.jsp">My Details</a>
