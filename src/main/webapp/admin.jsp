@@ -25,7 +25,7 @@
 					<div class="font-weight-bold m-2">ADD HOD</div>
 					<button onClick='handleAddHOD()' class="m-2 btn btn-info px-4">+</button>
 				</div>
-			</div>
+			</div> 
 			<div id="notification-panel"
 				style="width: 25%; min-height: 400px; background-color: #C1D5DD; border-radius: 8px;">
 				<h4 class="text-center py-3">Notifications</h4>
